@@ -1,6 +1,6 @@
-package min_search_functions;
+package Part_1.min_search_functions;
 
-import main.Main;
+import Part_1.main.Main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class Straight {
             x1 = x + h;
             if ((Main.func2(x) - Main.func2(x1)) < e) {
 //                return x - h / 2 < x1 ? new ArrayList<Double>(Arrays.asList(x - h / 2, x1)) : new ArrayList<>(Arrays.asList(x1, x - h / 2));
-                return h > 0 ? new ArrayList<Double>(Arrays.asList(x - h / 2, x1)) : new ArrayList<>(Arrays.asList(x1, x - h / 2));
+                return h > 0 ? new ArrayList<>(Arrays.asList(x - h / 2, x1)) : new ArrayList<>(Arrays.asList(x1, x - h / 2));
             }
             x = x1;
         }
