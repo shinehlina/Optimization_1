@@ -6,7 +6,7 @@ import java.util.List;
 public class Point {
     private List<Float> values;
 
-    Point(List<Float> values) {
+    public Point(List<Float> values) {
         this.values = values;
     }
 
@@ -25,6 +25,10 @@ public class Point {
         return rez;
     }
 
+    public static Point minus(Point minuend, Vector subtrahend) {
+        return minus(minuend, subtrahend.end);
+    }
+
     public static Point plus(Point first, Point second) {
         if (first.size() != second.size()) {
             throw new IllegalArgumentException("Point are not compatible");
@@ -34,6 +38,10 @@ public class Point {
             rez.add(first.get(i) + second.get(i));
         }
         return rez;
+    }
+
+    public static Point plus(Point first, Vector second) {
+        return plus(first, second.end);
     }
 
     /*
@@ -69,11 +77,11 @@ public class Point {
         return result;
     }
 
-    Float get(int index) {
+    public Float get(int index) {
         return values.get(index);
     }
 
-    private int size() {
+    int size() {
         return values.size();
     }
 
@@ -81,7 +89,7 @@ public class Point {
         values.set(index, value);
     }
 
-    private void add(float value) {
+    public void add(float value) {
         values.add(value);
     }
 

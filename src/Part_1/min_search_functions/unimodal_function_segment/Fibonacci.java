@@ -1,5 +1,6 @@
 package Part_1.min_search_functions.unimodal_function_segment;
 
+import Part_1.main.FunctionF;
 import Part_1.main.Main;
 import Part_1.main.Point;
 
@@ -62,13 +63,13 @@ public class Fibonacci {
         return (a + b) / 2;
     }
 
-    public static Point findMultidimensionalMin(float e, Point a, Point b) {
+    public static Point findMultidimensionalMin(float e, Point a, Point b, FunctionF func) {
         int n = findIterationNumber(e, a, b);
         Point x1, x2;
         x1 = Point.plus(a, Point.multiply(Point.minus(b, a), (float) fibonacciFunc(n) / fibonacciFunc(n + 2)));
         x2 = Point.plus(a, Point.multiply(Point.minus(b, a), (float) fibonacciFunc(n + 1) / fibonacciFunc(n + 2)));
         while (n > 0) {
-            if (Main.func(x1) < Main.func(x2)) {
+            if (func.function(x1) < func.function(x2)) {
                 b = x2;
                 x2 = x1;
                 x1 = Point.plus(a, Point.minus(b, x2));
